@@ -1,0 +1,10 @@
+video {
+    background: #222;
+    margin: 0 0 20px 0;
+    width: 50%;
+    height: 80%
+    display: inline-block;
+}
+.video-container {
+  text-align: center;
+}
