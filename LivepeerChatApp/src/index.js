@@ -1,7 +1,11 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
-import registerServiceWorker from './registerServiceWorker';
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./App";
+import registerServiceWorker from "./registerServiceWorker";
+import config from "react-global-configuration";
+import globalConfig from "./config";
 
-ReactDOM.render(<App />, document.getElementById('root'));
+config.set(globalConfig);
+
+ReactDOM.render(<App />, document.getElementById("root"));
 registerServiceWorker();
