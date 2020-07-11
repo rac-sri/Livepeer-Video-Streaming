@@ -11,11 +11,11 @@ textarea {
   font-family: Arial;
 }
 .login {
-  width: 100%;
+  width: 90%;
   height: 100%;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  top: -110%;
+  position: absolute;
 }
 .login-form {
   display: flex;
@@ -415,7 +415,7 @@ textarea {
   width: 304px;
   height: 89px;
   background-size: 100%;
-  /* background-image: url("images/1_pay_mm_off.png"); */
+  /* background-image: url("./images/images.jpg"); */
   cursor: pointer;
   display: inline-block;
 }
@@ -430,15 +430,19 @@ textarea {
 .main-body-container {
   margin-top: 50px;
   height: inherit;
+  position: relative;
+  left: 25%;
+  width: 30%;
+  z-index: -1;
 }
 
-/* .tip-button:hover {
-  background-image: url("images/1_pay_mm_over.png");
+.tip-button:hover {
+  /* background-image: url("./images/images.jpg"); */
 }
 
 .tip-button:active {
-  background-image: url("images/1_pay_mm_off.png");
-} */
+  /* background-image: url("./images/images.jpg"); */
+}
 
 .body-container {
   height: 84%;
@@ -478,8 +482,8 @@ textarea {
 }
 
 .chat-container {
-  width: 50%;
-  display: inline-block;
+  width: 100%;
+  display: relative;
   height: 100%;
   vertical-align: top;
   position: relative;
@@ -488,7 +492,6 @@ textarea {
 
 .chat-container-inner {
   margin: 0 50px;
-  height: inherit;
 }
 
 [data-reactroot] {
@@ -505,4 +508,18 @@ textarea {
   /* margin: 0px auto; */
   overflow: hidden;
   border-radius: 10px;
+}
+
+.stream-count-container {
+  position: absolute;
+  top: 20%;
+  left: 8%;
+}
+.stream-info-container {
+  width: 300%;
+}
+.Broadcaster {
+  position: absolute;
+  left: 70%;
+  top: -100%;
 }

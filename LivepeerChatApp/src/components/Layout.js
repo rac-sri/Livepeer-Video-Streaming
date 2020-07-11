@@ -6,6 +6,7 @@ import ChatContainer from "./chats/ChatContainer";
 import ReactHLS from "react-hls";
 import config from "react-global-configuration";
 import VideoContainer from "./videoContainer";
+import Broadcaster from "../broadcaster";
 
 const socketUrl = "http://localhost:3231";
 
@@ -25,12 +26,14 @@ export default class Layout extends Component {
   }
 
   initSocket = () => {
-    const socket = io(socketUrl);
+    const socket = io(this.state.socketUrl);
 
     socket.on("connect", () => {
       console.log("Connected");
     });
-
+    socket.on(USER_CONNECTED, (connectedUsers) => {
+      this.setState({ connectedUsers: connectedUsers });
+    });
     this.setState({ socket });
   };
 
@@ -53,12 +56,12 @@ export default class Layout extends Component {
     return (
       <div className="body-container">
         <div className="stream-header-container">
-          <div className="stream-title default-font">{broadcaster.title}</div>
-          <img className="globe-icon" src="/images/globe.png"></img>
+          <div className="stream-title default-font">
+            {broadcaster.ETHAddress}
+          </div>
+          {/* <img className="globe-icon" src="/images/globe.png"></img> */}
           <div className="broadcaster-info-container default-font default-font-color">
-            <div className="broadcasters-name">{`${broadcaster.firstName} ${broadcaster.lastName}`}</div>
-            <div className="broadcasters-city">{`${broadcaster.city},`}</div>
-            <div className="broadcasters-country">{broadcaster.country}</div>
+            <div className="broadcasters-name">{`${broadcaster.FirstName} ${broadcaster.LastName}`}</div>
           </div>
         </div>
         <div className="main-body-container">
@@ -66,25 +69,22 @@ export default class Layout extends Component {
             streamId={streamId}
             connectedUsers={this.state.connectedUsers}
           />
-          <div className="chat-container">
-            <div className="chat-container-inner">
-              <div className="stream-count-container">
-                <img src="/images/users.png" className="users-logo"></img>
-                <div className="stream-count default-font default-font-color">
-                  {`Viewers: ${Object.keys(this.state.connectedUsers).length}`}
-                </div>
-              </div>
-              {!user ? (
-                <LoginForm socket={socket} setUser={this.setUser} />
-              ) : (
-                <ChatContainer
-                  socket={socket}
-                  user={user}
-                  logout={this.logout}
-                />
-              )}
-            </div>
+        </div>
+        <div className="stream-count-container">
+          {/* <img src="/images/users.png" className="users-logo"></img> */}
+          <div className="stream-count default-font default-font-color">
+            {`Viewers: ${Object.keys(this.state.connectedUsers).length}`}
           </div>
+        </div>
+        <div className="chat-container">
+          <div className="chat-container-inner">
+            {!user ? (
+              <LoginForm socket={socket} setUser={this.setUser} />
+            ) : (
+              <ChatContainer socket={socket} user={user} logout={this.logout} />
+            )}
+          </div>
+          <Broadcaster />
         </div>
       </div>
     );
