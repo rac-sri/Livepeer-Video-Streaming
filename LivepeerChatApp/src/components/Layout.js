@@ -8,6 +8,7 @@ import config from "react-global-configuration";
 import VideoContainer from "./videoContainer";
 
 const socketUrl = "http://localhost:3231";
+
 export default class Layout extends Component {
   constructor(props) {
     super(props);

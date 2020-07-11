@@ -6,7 +6,8 @@ import StreamInfo from "./StreamInfo";
 
 class VideoContainer extends Component {
   source() {
-    return `http://${config.get("serverIp")}:1935/stream/${
+    console.log(this.props.streamId);
+    return `http://${config.get("serverIp")}:8935/stream/${
       this.props.streamId
     }.m3u8`;
   }
