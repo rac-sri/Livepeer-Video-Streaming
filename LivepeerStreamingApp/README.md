@@ -26,8 +26,8 @@ _LivePeer Cli_
 
 _Errors_
 
-![](LivepeerStreamingApp/src/images/68747470733a2f2f692e696d6775722e636f6d2f6c476d4f6276672e706e67.png)
-![](LivepeerStreamingApp/src/images/68747470733a2f2f692e696d6775722e636f6d2f30494f4f3134312e706e67.png)
+![](src/images/68747470733a2f2f692e696d6775722e636f6d2f6c476d4f6276672e706e67.png)
+![](src/images/68747470733a2f2f692e696d6775722e636f6d2f30494f4f3134312e706e67.png)
 
 For both of these errors, the solution is to set the price you're willing to pay to be higher. The smart contract first filters by price, then by stake. On the testnet, Livepeer maintains some nodes that you can rely on that charge a higher fee so that you can make sure you're matched with them. Otherwise you might be paired with a transcoder that's not working correctly or is offline.
 From the livepeer CLI, choose 15 (Set Broadcast Config) and enter 200
