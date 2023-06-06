@@ -2,7 +2,7 @@ var video = document.getElementById("video");
 
 var streamId = ""; // hard code after following instaructions in readme.
 
-var source = "http://localhost:8935/stream/" + streamId + ".m3u8";
+var source = "http://localhoste:22/stream/" + streamId + ".m3u8";
 
 if (Hls.isSupported()) {
   var hls = new Hls();
